@@ -1,0 +1,10 @@
+[I 2025-03-24 17:34:14,363 C:\GoogleDrive\ryanchou0210\Work\Sinopac\projects\mcp-shioaji\mcp_server.py:45:list_accounts] Listing all accounts
+[I 2025-03-24 17:38:31,765 C:\GoogleDrive\ryanchou0210\Work\Sinopac\projects\mcp-shioaji\mcp_server.py:45:list_accounts] Listing all accounts
+[I 2025-03-24 17:38:31,765 C:\GoogleDrive\ryanchou0210\Work\Sinopac\projects\mcp-shioaji\mcp_server.py:28:create_shioaji_api] Creating Shioaji APIAPI key: PAPIUSER01  SECRET key: "2222"
+[E 2025-03-24 17:38:32,651 C:\GoogleDrive\ryanchou0210\Work\Sinopac\projects\mcp-shioaji\mcp_server.py:39:create_shioaji_api] Failed to connect to Shioaji: Invalid character '"'
+[I 2025-03-24 17:57:22,767 C:\GoogleDrive\ryanchou0210\Work\Sinopac\projects\mcp-shioaji\mcp_server.py:45:list_accounts] Listing all accounts
+[I 2025-03-24 17:57:22,767 C:\GoogleDrive\ryanchou0210\Work\Sinopac\projects\mcp-shioaji\mcp_server.py:28:create_shioaji_api] Creating Shioaji APIAPI key: PAPIUSER05 SECRET key: a2222
+[E 2025-03-24 17:57:23,507 C:\GoogleDrive\ryanchou0210\Work\Sinopac\projects\mcp-shioaji\mcp_server.py:39:create_shioaji_api] Failed to connect to Shioaji: The seed must be exactly 32 bytes long
+[I 2025-03-24 17:57:57,899 C:\GoogleDrive\ryanchou0210\Work\Sinopac\projects\mcp-shioaji\mcp_server.py:45:list_accounts] Listing all accounts
+[I 2025-03-24 17:57:57,899 C:\GoogleDrive\ryanchou0210\Work\Sinopac\projects\mcp-shioaji\mcp_server.py:28:create_shioaji_api] Creating Shioaji APIAPI key: PAPIUSER05 SECRET key: a2222
+[E 2025-03-24 17:57:58,792 C:\GoogleDrive\ryanchou0210\Work\Sinopac\projects\mcp-shioaji\mcp_server.py:39:create_shioaji_api] Failed to connect to Shioaji: The seed must be exactly 32 bytes long
