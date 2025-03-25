@@ -57,11 +57,11 @@ uv pip install -e .
 2. 啟動 MCP 服務器:
 
 ```bash
-# 使用 python 啟動
-python mcp_server.py
+# 開發模式啟動
+mcp dev mcp_server.py
 
-# 或使用 uv 啟動
-uv python mcp_server.py
+# 或安裝此 MCP server (方便之後可以直接從 Claude 來調用)
+mcp install mcp_server.py
 ```
 
 3. 使用 MCP 客戶端連接到服務器並使用提供的工具：
@@ -88,4 +88,24 @@ uv python mcp_server.py
 
 ## 授權 (License)
 
-[請指定適當的授權]
+MIT License
+
+Copyright (c) 2025
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
