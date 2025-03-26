@@ -20,7 +20,7 @@ load_dotenv()
 
 deps = [
     "python-dotenv",
-    "shioaji",
+    "shioaji[speed]",
 ]
 
 mcp = FastMCP(MCP_SERVER_NAME, dependencies=deps)
@@ -110,7 +110,7 @@ def quote_callback(exchange: Exchange, quote:QuoteSTKv1):
 def place_order(
     stock_id: str,
     price: float = 0.0, 
-    quanity: int = 1, 
+    quantity: int = 1, 
     action: str = sj.constant.Action.Buy, 
     price_type: str = sj.constant.StockPriceType.LMT,
     order_type: str = sj.constant.OrderType.ROD,
@@ -122,19 +122,19 @@ def place_order(
     try:
         contract = api.Contracts.Stocks[stock_id]
         order = api.Order(
-            price = price,
-            quantity = quanity,
-            action = action,
-            price_type = price_type,
-            order_type = order_type,
-            order_lot = order_lot,
-            account = api.stock_account
+            price=price,
+            quantity=quantity,
+            action=action,
+            price_type=price_type,
+            order_type=order_type,
+            order_lot=order_lot,
+            account=api.stock_account
         )
 
         trade = api.place_order(contract, order)
 
         api.update_status(api.stock_account) # 更新狀態
-        return trade["status"]["status"] 
+
         # 看委託單狀態, 會回傳以下七種
         # PendingSubmit: 傳送中
         # PreSubmitted: 預約單
@@ -143,6 +143,8 @@ def place_order(
         # Cancelled: 已刪除
         # Filled: 完全成交
         # Filling: 部分成交
+        return trade["status"]["status"] 
+
 
     except Exception as e:
         logger.error(f"Failed to place order: {str(e)}")
@@ -203,4 +205,3 @@ def list_profit_loss(begin_date: str, end_date: str):
     profitloss = api.list_profit_loss(api.stock_account, begin_date, end_date)
     df = pd.DataFrame(s.__dict__ for s in profitloss).set_index("id")
     return df.to_json(orient="records")
-

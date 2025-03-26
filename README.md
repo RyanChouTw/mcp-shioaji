@@ -18,43 +18,67 @@ MCP-Shioaji is a server built on the FastMCP framework that integrates with Sino
 - 查詢股票即時成交行情
 - 登出永豐證券帳戶
 
+# 安裝 (Installation)
+
 ## 系統需求 (Requirements)
 
 - Python 3.12 或更高版本
+- uv package manager:
 - 永豐證券帳戶 (含 API 金鑰)
 
-## 安裝 (Installation)
-
-### 使用 pip
+If you're on Mac, please install uv as
 
 ```bash
-# 建立虛擬環境
-python -m venv .venv
-source .venv/bin/activate  # Linux/Mac
-# 或
-.venv\Scripts\activate  # Windows
-
-# 安裝依賴
-pip install -e .
+brew install uv
 ```
 
-### 使用 uv
-
+On Windows
 ```bash
-# 安裝 uv (如果尚未安裝)
-pip install uv
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+``` 
+and then
+```
+set Path=C:\Users\nntra\.local\bin;%Path%
+```
 
-# 建立虛擬環境並安裝依賴
-uv venv
-uv venv activate  # 啟動虛擬環境
-uv pip install -e .
+Otherwise installation instructions are on their website: Install uv
+
+⚠️ Do not proceed before installing UV
+
+## Claude for Desktop Integration
+
+Go to Claude > Settings > Developer > Edit Config > claude_desktop_config.json to include the following:
+```
+{
+    "mcpServers": {
+        "shioaji": {
+            "command": "uvx",
+            "args": [
+                "mcp-shioaji"
+            ]
+        }
+    }
+}
+```
+For Windows users, go to Settings > MCP > Add Server, add a new server with the following settings:
+```
+{
+    "mcpServers": {
+        "shioaji": {
+            "command": "cmd",
+            "args": [
+                "/c",
+                "uvx",
+                "mcp-shioaji"
+            ]
+        }
+    }
+}
 ```
 
 ## 使用方法 (Usage)
 
-1. 準備 `.env` 檔案，包含您的 API 金鑰資訊 (選擇性)
-
-2. 啟動 MCP 服務器:
+1. 啟動 MCP 服務器:
 
 ```bash
 # 開發模式啟動
@@ -64,7 +88,7 @@ mcp dev mcp_server.py
 mcp install mcp_server.py
 ```
 
-3. 使用 MCP 客戶端連接到服務器並使用提供的工具：
+2. 使用 MCP 客戶端連接到服務器並使用提供的工具：
 
 - `login_shioaji`: 登入永豐證券帳戶
 - `list_accounts`: 列出所有交易帳戶
@@ -72,13 +96,19 @@ mcp install mcp_server.py
 - `stock_tick`: 查詢特定股票即時行情
 - `stock_bidask`: 查詢特定股票委買委賣資料
 - `stock_quote`: 查詢特定股票即時成交行情
+- `place_order`: 下單
+- `update_order_price`: 更新委託單價格
+- `update_order_quantity`: 更新委託單數量
+- `cancel_order`: 取消委託
+- `list_positions`: 列出所有持倉
+- `list_profit_loss`: 列出已實現損益
 - `logout_shioaji`: 登出永豐證券帳戶
 
 ## 依賴套件 (Dependencies)
 
 - mcp[cli] >= 1.5.0
 - python-dotenv >= 1.0.1
-- shioaji >= 1.2.5
+- shioaji[speed] >= 1.2.5
 
 ## 注意事項 (Notes)
 
